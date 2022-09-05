@@ -495,8 +495,8 @@ public class PlayerActivity extends AppCompatActivity implements ActionPlaying, 
                         //gradient.setBackground(gradientDrawable);
                         GradientDrawable gradientDrawableBg = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP,new int[]{swatch.getRgb(), swatch.getRgb()});
                         //gradient.setBackground(gradientDrawableBg);
-                        song_name.setTextColor(swatch.getTitleTextColor());
-                        artist_name.setTextColor(swatch.getBodyTextColor());
+                        song_name.setTextColor(Color.WHITE);
+                        artist_name.setTextColor(Color.LTGRAY);
                     }
                     else
                     {
@@ -509,7 +509,7 @@ public class PlayerActivity extends AppCompatActivity implements ActionPlaying, 
                         GradientDrawable gradientDrawableBg = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP,new int[]{0xff000000,0xff000000});
                         //gradient.setBackground(gradientDrawableBg);
                         song_name.setTextColor(Color.WHITE);
-                        artist_name.setTextColor(Color.DKGRAY);
+                        artist_name.setTextColor(Color.LTGRAY);
 
                     }
                 }
@@ -526,7 +526,7 @@ public class PlayerActivity extends AppCompatActivity implements ActionPlaying, 
             gradient.setBackgroundResource(R.drawable.gradient_bg);
             mContainer.setBackgroundResource(R.drawable.main_bg);
             song_name.setTextColor(Color.WHITE);
-            artist_name.setTextColor(Color.DKGRAY);
+            artist_name.setTextColor(Color.LTGRAY);
         }
     }
     public void ImageAnimation(Context context, ImageView imageView,Bitmap bitmap)
@@ -575,7 +575,6 @@ public class PlayerActivity extends AppCompatActivity implements ActionPlaying, 
         MusicService.MyBinder myBinder = (MusicService.MyBinder) service;
         musicService = myBinder.getService();
         musicService.setCallBack(this);
-        Toast.makeText(this, "Connected" + musicService, Toast.LENGTH_SHORT).show();
         seekBar.setMax(musicService.getDuration()/1000);
         metaData(uri);
         song_name.setText(listSongs.get(position).getTitle());
